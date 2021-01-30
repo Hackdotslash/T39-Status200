@@ -1,26 +1,80 @@
-import React from "react";
-import GlobalStyle from "./globalStyles";
-import Home from "./pages/HomePage/Home";
-import Services from "./pages/Services/Services";
-import Products from "./pages/Products/Products";
-import SignUp from "./pages/SignUp/SignUp";
-import Login from "./src1/components/Login/Login";
+import React, { useEffect, useState } from "react";
+import { Drawer, JoinedClasses, Login, Main } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
-import { Navbar, Footer } from "./components";
+import { IsUserRedirect, ProtectedRoute } from "./routes/Routes";
+import { useLocalContext } from "./context/context";
+import db from "./lib/firebase";
+require("dotenv").config();
+
 function App() {
+  const { loggedInMail } = useLocalContext();
+
+  const [createdClasses, setCreatedClasses] = useState([]);
+  const [joinedClasses, setJoinedClasses] = useState([]);
+
+  useEffect(() => {
+    if (loggedInMail) {
+      let unsubscribe = db
+        .collection("CreatedClasses")
+        .doc(loggedInMail)
+        .collection("classes")
+        .onSnapshot((snapshot) => {
+          setCreatedClasses(snapshot.docs.map((doc) => doc.data()));
+        });
+      return () => unsubscribe();
+    }
+  }, [loggedInMail]);
+
+  useEffect(() => {
+    if (loggedInMail) {
+      let unsubscribe = db
+        .collection("JoinedClasses")
+        .doc(loggedInMail)
+        .collection("classes")
+        .onSnapshot((snapshot) => {
+          setJoinedClasses(snapshot.docs.map((doc) => doc.data().joinedData));
+        });
+
+      return () => unsubscribe();
+    }
+  }, [loggedInMail]);
   return (
     <Router>
-      <GlobalStyle />
-      <ScrollToTop />
-      <Navbar />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/services" component={Services} />
-        <Route path="/products" component={Products} />
-        <Route path="/sign-up" component={Login} />
+        {createdClasses.map((item, index) => (
+          <Route key={index} exact path={`/${item.id}`}>
+            <Drawer />
+            <Main classData={item} />
+          </Route>
+        ))}
+        {joinedClasses.map((item, index) => (
+          <Route key={index} exact path={`/${item.id}`}>
+            <Drawer />
+            <Main classData={item} />
+          </Route>
+        ))}
+        <IsUserRedirect
+          user={loggedInMail}
+          loggedInPath="/"
+          path="/signin"
+          exact
+        >
+          <Login />
+        </IsUserRedirect>
+
+        <ProtectedRoute user={loggedInMail} path="/" exact>
+          <Drawer />
+          <ol className="joined">
+            {createdClasses.map((item) => (
+              <JoinedClasses classData={item} />
+            ))}
+
+            {joinedClasses.map((item) => (
+              <JoinedClasses classData={item} />
+            ))}
+          </ol>
+        </ProtectedRoute>
       </Switch>
-      <Footer />
     </Router>
   );
 }
