@@ -1,14 +1,15 @@
 import firebase from "firebase";
 import "firebase/firestore";
+require('dotenv').config()
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCzx8XNn5IZRN8PdybIR5U5cs3853zBbSo",
-  authDomain: "ks-classroom-7fd43.firebaseapp.com",
-  projectId: "ks-classroom-7fd43",
-  storageBucket: "ks-classroom-7fd43.appspot.com",
-  messagingSenderId: "512854288037",
-  appId: "1:512854288037:web:2d07d75d69915f9d54cf4c",
-  measurementId: "G-H7CRRSS3RM"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
+  measurementId: process.env.REACT_APP_MEASUREMENTID
 };
 
 firebase.initializeApp(firebaseConfig);
