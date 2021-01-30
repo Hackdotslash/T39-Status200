@@ -27,9 +27,7 @@ const Login = () => {
           <Route path="/" exact component={Home} />
           <Route path="/services" component={Services} />
           <Route path="/products" component={Products} />
-          <Route path="/signin" component={
-            SignUp
-          } onClick={() => login()} />
+          <Route path="/signin" component={SignUp} onClick={() => login()} />
         </Switch>
         <Footer />
       </Router>
@@ -37,7 +35,6 @@ const Login = () => {
         Login Now!
       </Button>
     </>
-
   );
 };
 
