@@ -80,7 +80,7 @@ function Footer() {
         <SocialMediaWrap>
           <SocialLogo to="/">
             <SocialIcon />
-            ULTRA
+            OCED
           </SocialLogo>
           <WebsiteRights>ULTRA © 2020</WebsiteRights>
           <SocialIcons>
