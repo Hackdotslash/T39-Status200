@@ -6,6 +6,8 @@ import firebase from "firebase/app";
 
 import "firebase/auth";
 import "firebase/firestore";
+import { render } from '@testing-library/react';
+import UserProfile from '../../Status';
 
 require('dotenv').config();
 
@@ -35,7 +37,7 @@ function SignUp() {
         var token = credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        console.log(user);
+        UserProfile.setEmail(user.email)
         // ...
       }).catch((error) => {
         // Handle Errors here.
