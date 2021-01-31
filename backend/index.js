@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
 require('dotenv').config();
+const cors = require("cors");
+const mongoose = require("mongoose");
 
 const Question = require('./models/Question')
 
 
-const app = express();
 app.use(cors());
 const port = process.env.PORT || 5000;
 
@@ -31,11 +31,11 @@ app.route('/addQuestion').post((req, res) => {
   let marks = req.body.marks;
   let difficulty = req.body.difficulty;
 
-  let question = new Question({
+  let new_question = new Question({
     question, marks, difficulty
   })
 
-  question.save().then(() => {
+  new_question.save().then(() => {
     res.send({
       message: "Question Added Successfully"
     })
