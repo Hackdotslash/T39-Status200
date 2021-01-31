@@ -20,10 +20,6 @@ import {
   PricingCardFeature,
 } from "./Pricing.elements";
 
-import Chatdetector from "../../images/p7.svg";
-import Calldetector from "../../images/p9.svg";
-import Alldetector from "../../images/p11.svg";
-
 function Pricing() {
   return (
     <IconContext.Provider value={{ color: "#a9b3c1", size: 64 }}>
@@ -31,48 +27,45 @@ function Pricing() {
         <PricingWrapper>
           <PricingHeading>Our Services</PricingHeading>
           <PricingContainer>
-            <PricingCard to="/signin">
+            <PricingCard to="/sign-up">
               <PricingCardInfo>
                 <PricingCardIcon>
-                  {/* <GiRock /> */}
-                  <img src={Chatdetector} alt="" srcset="" width="120px" />
+                  <GiRock />
                 </PricingCardIcon>
-                <PricingCardPlan>Chat Detector</PricingCardPlan>
-                <PricingCardCost>$9.99</PricingCardCost>
+                <PricingCardPlan>Starter Pack</PricingCardPlan>
+                <PricingCardCost>$99.99</PricingCardCost>
                 <PricingCardLength>per month</PricingCardLength>
                 <PricingCardFeatures>
                   <PricingCardFeature>100 New Users</PricingCardFeature>
-                  <PricingCardFeature> Budget</PricingCardFeature>
+                  <PricingCardFeature>$10,000 Budget</PricingCardFeature>
                   <PricingCardFeature>Retargeting analytics</PricingCardFeature>
                 </PricingCardFeatures>
                 <Button primary>Choose Plan</Button>
               </PricingCardInfo>
             </PricingCard>
-            <PricingCard to="/signin">
+            <PricingCard to="/sign-up">
               <PricingCardInfo>
                 <PricingCardIcon>
-                  {/* <GiCrystalBars /> */}
-                  <img src={Calldetector} alt="" srcset="" width="120px" />
+                  <GiCrystalBars />
                 </PricingCardIcon>
-                <PricingCardPlan>Call Detector</PricingCardPlan>
-                <PricingCardCost>$2.99</PricingCardCost>
+                <PricingCardPlan>Gold Rush</PricingCardPlan>
+                <PricingCardCost>$299.99</PricingCardCost>
                 <PricingCardLength>per month</PricingCardLength>
                 <PricingCardFeatures>
                   <PricingCardFeature>1000 New Users</PricingCardFeature>
-                  <PricingCardFeature>Budget</PricingCardFeature>
+                  <PricingCardFeature>$50,000 Budget</PricingCardFeature>
                   <PricingCardFeature>Lead Gen Analytics</PricingCardFeature>
                 </PricingCardFeatures>
                 <Button primary>Choose Plan</Button>
               </PricingCardInfo>
             </PricingCard>
-            <PricingCard to="/signin">
+            <PricingCard to="/sign-up">
               <PricingCardInfo>
                 <PricingCardIcon>
-                  {/* <GiCutDiamond /> */}
-                  <img src={Alldetector} alt="" srcset="" width="120px" />
+                  <GiCutDiamond />
                 </PricingCardIcon>
-                <PricingCardPlan>No Cheating</PricingCardPlan>
-                <PricingCardCost>$29.99</PricingCardCost>
+                <PricingCardPlan>Diamond Kings</PricingCardPlan>
+                <PricingCardCost>$999.99</PricingCardCost>
                 <PricingCardLength>per month</PricingCardLength>
                 <PricingCardFeatures>
                   <PricingCardFeature>Unlimited Users</PricingCardFeature>

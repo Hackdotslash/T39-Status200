@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const PricingSection = styled.div`
   padding: 100px 0 160px;
@@ -80,7 +80,7 @@ export const PricingCardInfo = styled.div`
 `;
 
 export const PricingCardIcon = styled.div`
-  margin-bottom: 24px;
+  margin: 24px 0;
 `;
 
 export const PricingCardPlan = styled.h3`
@@ -90,7 +90,6 @@ export const PricingCardPlan = styled.h3`
 
 export const PricingCardCost = styled.h4`
   font-size: 40px;
-  margin: 1.5rem 0;
 `;
 
 export const PricingCardLength = styled.p`

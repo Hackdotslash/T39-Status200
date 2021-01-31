@@ -45,7 +45,7 @@ function Footer() {
         <FooterLinksWrapper>
           <FooterLinkItems>
             <FooterLinkTitle>About Us</FooterLinkTitle>
-            <FooterLink to="/signin">How it works</FooterLink>
+            <FooterLink to="/sign-up">How it works</FooterLink>
             <FooterLink to="/">Testimonials</FooterLink>
             <FooterLink to="/">Careers</FooterLink>
             <FooterLink to="/">Investors</FooterLink>
@@ -80,7 +80,7 @@ function Footer() {
         <SocialMediaWrap>
           <SocialLogo to="/">
             <SocialIcon />
-            OCED
+            ULTRA
           </SocialLogo>
           <WebsiteRights>ULTRA © 2020</WebsiteRights>
           <SocialIcons>

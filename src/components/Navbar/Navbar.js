@@ -43,7 +43,7 @@ function Navbar() {
           <NavbarContainer>
             <NavLogo to='/' onClick={closeMobileMenu}>
               <NavIcon />
-              OCED
+              ULTRA
             </NavLogo>
             <MobileIcon onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
@@ -66,16 +66,16 @@ function Navbar() {
               </NavItem>
               <NavItemBtn>
                 {button ? (
-                  <NavBtnLink to='/signin'>
+                  <NavBtnLink to='/sign-up'>
                     <Button primary>SIGN UP</Button>
                   </NavBtnLink>
                 ) : (
-                    <NavBtnLink to='/signin'>
-                      <Button onClick={closeMobileMenu} fontBig primary>
-                        SIGN UP
+                  <NavBtnLink to='/sign-up'>
+                    <Button onClick={closeMobileMenu} fontBig primary>
+                      SIGN UP
                     </Button>
-                    </NavBtnLink>
-                  )}
+                  </NavBtnLink>
+                )}
               </NavItemBtn>
             </NavMenu>
           </NavbarContainer>
